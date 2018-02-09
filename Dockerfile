@@ -101,7 +101,7 @@ RUN mkdir -p -m 700 /root/.jupyter/ && \
 VOLUME /notebooks
 WORKDIR /notebooks
 
-EXPOSE 8888
+EXPOSE 8887
 
 ENTRYPOINT ["tini", "--"]
 CMD ["jupyter", "notebook", "--no-browser", "--allow-root"]
