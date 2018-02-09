@@ -5,7 +5,7 @@
 # For opinionated stacks of ready-to-run Jupyter applications in Docker,
 # check out docker-stacks <https://github.com/jupyter/docker-stacks>
 
-FROM ubuntu/16.04
+FROM ubuntu:16.04
 
 MAINTAINER Project Kimzh <kimcheung@126.com>
 
