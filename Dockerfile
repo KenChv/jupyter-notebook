@@ -58,18 +58,14 @@ RUN curl -L https://github.com/krallin/tini/releases/download/v0.6.0/tini > tini
 
 # Install the recent pip release
 RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
-    python2 get-pip.py && \
     python3 get-pip.py && \
     rm get-pip.py && \
-    pip2 --no-cache-dir install requests[security] && \
     pip3 --no-cache-dir install requests[security] && \
     rm -rf /root/.cache
 
 # Install some dependencies.
-RUN pip2 --no-cache-dir install ipykernel && \
-    pip3 --no-cache-dir install ipykernel && \
+RUN pip3 --no-cache-dir install ipykernel && \
     \
-    python2 -m ipykernel.kernelspec && \
     python3 -m ipykernel.kernelspec && \
     rm -rf /root/.cache
 
@@ -82,7 +78,6 @@ RUN BUILD_DEPS="nodejs-legacy npm" && \
     DEBIAN_FRONTEND=noninteractive apt-get install -yq $BUILD_DEPS && \
     \
     pip3 install --no-cache-dir /usr/src/jupyter-notebook && \
-    pip2 install --no-cache-dir widgetsnbextension && \
     pip3 install --no-cache-dir widgetsnbextension && \
     \
     npm cache clean && \
